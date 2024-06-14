@@ -1,0 +1,77 @@
+<%layout('layouts/boilerplate.ejs')-%>
+
+    <body>
+     
+            <div class="filters container1 d-flex py-1 p-5 justify-content-between">
+                    <div class="d-flex align-items-center filterContainer">
+                        <a href="/listings/filter?name=Lake">
+                            <div class="filter text-center pt-2 ">
+                                <div><i class="fa-solid fa-water fa-xs"></i></div>
+                                <div>Lake</div>
+                            </div>
+                        </a>
+                        <a href="/listings/filter?name=Beach">
+                            <div class="filter text-center pt-2 ">
+                                <div><i class="fa-solid fa-umbrella-beach "></i></div>
+                                <div>Beach</div>
+                            </div>
+                        </a>
+                        <a href="/listings/filter?name=City">
+                            <div class="filter text-center pt-2 ">
+                                <div><i class="fa-solid fa-city"></i></div>
+                                <div>City</div>
+                            </div>
+                        </a>
+                        <a href="/listings/filter/?name=Mountains">
+                            <div class="filter text-center pt-2 ">
+                                <div><i class="fa-solid fa-mountain-city"></i></div>
+                                <div>Mountains</div>
+                            </div>
+                        </a>
+                        <a href="/listings/filter?name=Pool">
+                            <div class="filter text-center pt-2 ">
+                                <div><i class="fa-solid fa-person-swimming"></i></div>
+                                <div>Pool</div>
+                            </div>
+                        </a>
+                        <a href="/listings/filter?name=Camping">
+                            <div class="filter text-center pt-2 ">
+                                <div><i class="fa-solid fa-campground"></i></div>
+                                <div>Camping</div>
+                            </div>
+                        </a>
+                        <a href="/listings/filter/?name=Rooms">
+                            <div class="filter text-center pt-2 ">
+                                <div><i class="fa-solid fa-bed"></i></div>
+                                <div>Rooms</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="reverse-check displaye">
+                        <div class="form-check-reverse form-switch ">
+                            <label class="form-check-label" for="switch">Price after taxes</label>
+                            <input class="form-check-input" type="checkbox" role="switch" id="switch">
+                        </div>
+                    </div>
+
+
+                
+            </div>
+            <div class="wrapper row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 mx-4 my-2">
+                <%for(obj of Listings){%>
+                    <a href="/listings/<%=obj.id%>/show" class="listing-links">
+                        <div class="card1">
+                            <img src="<%=obj.image.url%>">
+                            <div class="card1-body">
+                                <h5 class="card1-text">
+                                    <%=obj.title%>
+                                </h5>
+                                    <p>
+                                        &#8377<span><%=obj.price%></span>/night
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <%}%>
+            </div>
+    </body>
